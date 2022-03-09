@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 type Props = {
   saveTodo: (e: React.FormEvent, formData: IFormData) => void
 }
-
 const AddTodo: React.FC<Props> = ({ saveTodo }) => {
   const [formData, setFormData] = useState<IFormData>({ name: '', description: '' })
 
@@ -11,7 +10,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     console.log('e.currentTarget', e.currentTarget)
     setFormData({
       ...formData,
-      [e.currentTarget.id]: e.currentTarget.value,
+      [e.currentTarget.id]: e.currentTarget.value
     })
   }
 
@@ -27,7 +26,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
           <input onChange={handleForm} type='text' id='description' />
         </div>
       </div>
-      <button disabled={formData === undefined ? true : false} >Add Todo</button>
+      <button disabled={formData === undefined} >Add Todo</button>
     </form>
   )
 }
